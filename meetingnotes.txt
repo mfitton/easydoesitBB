@@ -1,0 +1,148 @@
+# EASY DOES IT
+## Introductions
+Nikki from Easy Does it. She's the director as of December. She's a user of the service too, good to talk to.
+	nikki@easydoesitservices.org (510) 926-9137
+Walter from Easy Does it. The treasurer of Easy Does It. Might be concerned about maintainability.
+John Benson from Easy Does it. Direct service provider/attendant. Helps fix wheelchairs. DME Durable Medical Equipment
+
+## History
+Founded in 1994 by people with disabilities. Funded through the 1998 Measure E bill in the city of Berkeley. Takes
+a bit from the property tax.
+They are the only service like this in the world. 
+
+## Attendant Services
+Client calls for attendant service if, for example, one of their normal attendants cannot make it. 
+Should be for urgently needed services.
+1. Need help getting out of bed
+2. Need assistance in bathroom.
+3. Need help making dinner
+4. Going to the store for an urgent need (diabetic w/ food need) 
+5. Pick people up from doctors' appointments.
+6. Can take someone up to one mile outside Berkeley city limits or anywhere in Berkeley.
+Example: Nonverbal cerebral palsy patient's wheelchair broke on campus--front wheel fell off.
+
+They give their contact info to the dispatcher. 
+Try to provide service w/in 45 minutes of being called.
+Most clients nowadays have smart phones, but a significant portion do NOT. Also, they're doing more outreach to the elderly,
+	who often don't have much experience with smart phones or devices.
+Others have communication boards. Ask more about this later...
+Problems:
+1. Some patients have a lot of trouble using the telephone.
+2. Emergency services being called are very expensive to the taxpayer compared to calling this group.
+
+## Questions:
+1. How do clients who are nonverbal communicate what they need to you? Grunt once for yes, twice for no, 
+   knowing the clients.
+2. How many repairs per day? (6-7)
+3. How many attendants? (~20s)
+4. How many clients? 500.
+5. How often are new people being registered? Regularly... But maybe 1 a week, up to 5 or 6.
+6. How do you work with the kin of your clients? Sometimes the kin contacts Easy Does It. 
+	Independent living movement, trying to be apart from.
+7. Existing DB system?
+	Web based version of filemaker. They wouldn't want to lose the data that they have. The database maybe needs to be cleaned up.
+	Currently the DB can be used to help  people who have, say, electrical needs during the power outage. They have a lot
+		of data on this but it isn't easily accessible.
+8. More about efficiency or meeting needs that they're having trouble meeting?
+	A lot of time is wasted trying to collect data to present to the government rather than helping clients.
+	Goal of getting funding more easily by being able to present data in effective ways to govt.
+	Expanding clientele. Aging population and attempt to reach out to seniors. (Mb working with hospitals?)
+	Ways of effectively disseminating information between members of the staff.
+9. Normally 2 to 4 attendants on duty at a given time.
+10. Where's the bottleneck? Not enough attendants. There are BURSTY requests to the dispatcher, however. Electric wheelchair stuck in 
+	the rain...
+11. TOP 3 FEATURES:
+	Answer 1
+	Simplified user interface usable by people with many disabilities.
+	Data integration and ease of collecting data.
+	Answer 2
+	Easy to use administrative side. App for the attendant, app for the dispatcher, app for the user.
+	Answer 3
+	Improvement of the communication flow  client -> dispatcher -> attendant. (All 3 using their smartphones for the app, ideally)
+	Logging of this communication flow in a database.
+	Information flow when a new dispatcher comes in. They should get the old dispatcher's information. LOG IT ALLLLLLL!!!!
+
+Individual Questions I'd like to ask:
+	
+
+EVERYTHING IS DONE THROUGH A DISPATCHER ---> Major pain point and the bottleneck of the whole process.
+
+Ideally a design solution would be easy to change to meet an equivalent company's needs. Not too tailored maybe?
+## Dispatcher
+Asks client whether they want a male or female attendant to help them or if they don't care.
+Dispatcher can take calls up to three hours in advance. Help now or later.
+
+## Repair Program
+Client will call if their wheelchair or scooter breaks.
+Dispatcher lets the repair department know that someone needs something repaired.
+Repair calls can take multiple trips to clients' homes.
+
+## Equipment Loaner Program
+Warehouse of loaner wheelchairs, scooters, hospital beds, walkers, shower chairs...
+Can loan one of these for up to a month at NO COST.
+Charge standard copay for delivery and pick up of  equipment.
+
+IDEA: Start with the "type of service" drill down from there.
+
+goalasos!
+GOAL: The client can pay for the service through the app.
+      Currently if someone doesn't have the cash on them they will be billed later for the service.
+      Accepting electronic payments would make this easier.
+      HARD
+
+GOAL: Inventory tracking of items that are loaned out. Information about features of the individual items.
+      EASY
+
+GOAL: They download the app and they get some kind of information about what the service is all about.
+      Like an about page I suppose.
+      EASY
+
+GOAL: The application should be easy to use both on the end user side and on the Easy Does It side.
+      
+GOAL: Be able to provide the location.
+      MEASIUM
+
+GOAL: Be able to provide an estimate of when a service will arrive.
+      HARD
+
+GOAL: Be able to take a picture of the thing that needs to be repaired.
+      MEDIUM
+
+GOAL: Keep track of the amount of time spent on the job. How long does it take us to provide service x?
+      City of Berkeley also asks for reports on what the organization does. Ideally they want something
+      that fixes the paperwork problem.
+      MEDIUM.
+
+GOAL: Tracking calls currently dispatched for each service.
+      EASY.
+
+GOAL: Allow clients to register as a new client with service and make updates to account. Customer database.
+      EASY.
+
+GOAL: In case of a disaster (e.g. the power outage recently and you're on a ventilator or have a special bed.)
+      Want to keep track of a client's needs and preemptively meet them in cases of certain emergencies.
+      Something like an amber alert that pops up on their phones during a disaster so they can easily contact services.
+      HARD.
+
+GOAL: Text based messaging system with clients.
+      MEDIUM
+
+GOAL: Digitally maintaining the list of attendants that a person could hire if they just lost theirs.
+      EASY, mostly import issues.
+
+GOAL: Be able to self triage and say the severity of the problem. If it's top priority, connect them directly to a 
+      dispatcher. Dispatcher often contacts people via text. Should all funnel down through the dispatch.
+      Dispatcher gives the contact information of the client to the attendant and the attendant gives a call to the
+      client to tell them more information about when they'll be there, etc. Attendant calls dispatch at the end of
+      the visit.
+
+
+GOAL: Promotion of service through the app store.
+
+
+
+Multiple views of the app.
+------------------------------
+ADMIN
+DISPATCHER
+ATTENDANT

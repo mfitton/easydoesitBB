@@ -1,0 +1,41 @@
+Tables
+
+Users
+	UID (primary key), First name (Text variable), last name (Text variable), disability (foreign key), notes (Text variable), 
+	Address (Text variable), EC Name, EC phone # (Text variable)
+
+Service Requests
+	UID (foreign key --> users), Time Requested, Latitude, Longitude, Attendant servicing (foreign key --> Attendants), 
+	Time attendant starts (datetime type), Time attendant completes (datetime type),
+	Service Requested (foreign key --> services), Dispatch Notes (text variable),
+	Attendant notes (text variable)
+
+Employees
+	EID, First name, Last name, Role (foreign key --> Roles)
+
+Roles 
+	RID, role_name (Text)
+
+Services (enum table)
+	SID (primary key), Service name (Text, 20), base service time (uint) [see explanation in algorithms]
+	INDEX on SID
+
+Disabilities (enum table)
+	DID (primary key), Disability name (Text 20) 
+	INDEX on DID
+
+Equipment 
+	EID (primary key), In use (Bool), Renter (foreign key --> Users)
+	
+Equipment Type 
+	TypeID (primary key), description (text variable) 
+
+Algorithms that might be needed:
+	Make a service request product for clients
+	Call now button for clients who want to bypass the digital system (do we want this? Probably)
+	View current service requests (needed by dispatcher to see the whole log)
+	View MY current service requests (needed by attendant to see their individual jobs and specific information)
+	Make a service request my active request (needed by an attendant to track an individual job)
+	Close a service request (needed by an attendant to indicate the completion of an individual job, add notes.)
+	Make time estimate (a function of the attendants on duty, the number of current service requests and their existing time
+		estimates. Need base cases provided by Services table perhaps)
