@@ -16,6 +16,17 @@ def connect_db():
 def close_db(connection):
   connection.close()
 
+def service_type_to_id(service_type):
+    """Converts a service type string to an integer service type ID"""
+    db = connect_db()
+    if not db:
+        return '404'
+    c = db.cursor()
+    c.execute("""SELECT stid FROM Services WHERE type=?""", service_type)
+    num = c.fetchone()
+    db.close()
+    return num
+
 @app.route("/")
 def welcome():
   return "Welcome to the app"
@@ -35,7 +46,7 @@ def service_request():
     gen = request.form['gender']
     start_time = str(datetime.now())
     cmd = """INSERT INTO ServiceRequests
-             (cid, service_type, address, start_time, emergency_level, 
+             (cid, service_type, address, start_time, emergency_level,
              gender_pref) VALUES ({}, {}, '{}', '{}', {}, '{}');"""\
              .format(uid, tid, loc, start_time, urg, gen)
     c = db.cursor()
@@ -53,6 +64,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-
-
-

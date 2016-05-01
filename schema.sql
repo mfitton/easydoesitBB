@@ -59,3 +59,14 @@ CREATE TABLE RentalInfo (
 	rental_start DATETIME NOT NULL,
 	rental_end DATETIME
 );
+
+CREATE TABLE Services AS
+	SELECT 1 AS stid, 'Attendants' AS type UNION
+	SELECT 2        , 'Rental'             UNION
+	SELECT 3        , 'Repair'             UNION
+	SELECT 4        , 'Transport';
+
+CREATE TABLE Employees (
+	empid INTEGER PRIMARY KEY,
+	emp_name TEXT
+);
