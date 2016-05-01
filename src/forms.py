@@ -13,3 +13,13 @@ class ServiceRequestForm(Form):
   submit = SubmitField("Send")
 
   #gender preference, crisis level, type, cid, address  
+
+class ClientRegistrationForm(Form):
+  first_name = TextAreaField("First Name")
+  last_name = TextAreaField("Last Name")
+  home_address = TextAreaField("Home Address")
+  gender = RadioField(u'Gender', choices = [('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
+  ec_first_name = TextAreaField("First Name")
+  ec_last_name = TextAreaField("Last Name")
+  submit = SubmitField("Register")
+
