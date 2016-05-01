@@ -20,23 +20,40 @@ CREATE TABLE ServiceRequests (
 	cid INT REFERENCES Clients,
 	attendant_id INT REFERENCES Employees,
 	service_type INT REFERENCES Services,
-	latitude INT,
-	longitude INT,
+	address TEXT,
 	start_time DATETIME,
 	end_time DATETIME,
+	client_notes TEXT,
 	dispatch_notes TEXT,
-	attendant_notes TEXT
+	attendant_notes TEXT,
+	emergency_level INT,
+	tiid INT REFERENCES TransportInfo,
+	riid INT REFERENCES RentalInfo
 )
 
 CREATE TABLE Equipment (
 	eid INT NOT NULL PRIMARY KEY,
 	equipment_type REFERENCES EquipmentTypes,
 	in_use INT,
-	borrower_id REFERENCES Clients
+	riid INT REFERENCES RentalInfo
 )
 
 CREATE TABLE EquipmentTypes (
 	etid INT NOT NULL PRIMARY KEY,
 	name TEXT,
 	description TEXT
+)
+
+CREATE TABLE TransportInfo (
+	tiid INT NOT NULL PRIMARY KEY,
+	from_address TEXT NOT NULL,
+	to_address TEXT,
+	pickup_time DATETIME
+)
+
+CREATE TABLE RentalInfo (
+	riid INT NOT NULL PRIMARY KEY,
+	eid INT NOT NULL REFERENCES Equipment,
+	rental_start DATETIME NOT NULL,
+	rental_end DATETIME
 )
