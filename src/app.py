@@ -27,23 +27,24 @@ def service_request():
     db = connect_db()
     if not db:
       return '404'
-    sr = {}
-    uid = request.form['uid']
-    tid = request.form['service_type']
-    urg = request.form['urgency']
-    loc = request.form['location']
-    gen = request.form['gender']
+    tid = request.form['Type']
+    loc = request.form['DestinationLocation']
+    rsn = request.form['Reason']
+    name = request.form['Name']
+    gen = request.form['Gender']
+
     start_time = str(datetime.now())
-    cmd = """INSERT INTO ServiceRequests
-             (cid, service_type, address, start_time, emergency_level, 
-             gender_pref) VALUES ({}, {}, '{}', '{}', {}, '{}');"""\
-             .format(uid, tid, loc, start_time, urg, gen)
     c = db.cursor()
-    c.execute(cmd)
+    c.execute("select cid from Clients where name = ?;", name)
+    uid = c.fetchone()
+
+    c.execute( """INSERT INTO ServiceRequests
+             (cid, service_type, address, start_time, emergency_level, 
+             gender_pref) VALUES (?, ?, '?', '?', ?, '?');""", (uid, tid, loc, start_time, 2, gen))
     c.execute('select * from ServiceRequests')
     result = c.fetchall()
     db.close()
-    return str(result)
+    return 'Good'
   elif request.method == 'GET':
     form = ServiceRequestForm()
     return render_template('service_request.html', form=form)
