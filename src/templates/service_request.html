@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h1>Server Request Form</h1>
+  <form action="{{ url_for('service_request') }}" method="post" role="form">
+    {{ form.hidden_tag() }}
+
+    <fieldset class="form-group">
+      {{ form.uid.label }}
+      {{ form.uid }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.service_type.label }}
+      {{ form.service_type }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.urgency.label }}
+      {{ form.urgency }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.location.label }}
+      {{ form.location }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.gender.label }}
+      {{ form.gender }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.submit }}
+    </fieldset>
+    
+  </form>
+{% endblock %}
+
+
