@@ -5,6 +5,10 @@ app = Flask(__name__)
 def welcome():
     return "Welcome to the app"
 
+@app.route("/<name>")
+def echo_name(name):
+    return "Hello " + name
+
 def main():
     app.run()
 
