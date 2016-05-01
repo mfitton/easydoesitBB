@@ -1,5 +1,5 @@
 CREATE TABLE Clients (
-	cid INT NOT NULL PRIMARY KEY,
+	cid INTEGER PRIMARY KEY,
 	name TEXT,
 	age INT,
 	city TEXT,
@@ -10,16 +10,17 @@ CREATE TABLE Clients (
 );
 
 CREATE TABLE EmergencyContacts (
-	ecid INT NOT NULL PRIMARY KEY,
+	ecid INTEGER PRIMARY KEY,
 	name TEXT,
 	phone_number TEXT
 );
 
 CREATE TABLE ServiceRequests (
-	rid INT NOT NULL PRIMARY KEY,
+	rid INTEGER PRIMARY KEY,
 	cid INT REFERENCES Clients,
 	attendant_id INT REFERENCES Employees,
 	service_type INT REFERENCES Services,
+	gender_pref TEXT,
 	address TEXT,
 	start_time DATETIME,
 	end_time DATETIME,
@@ -28,31 +29,32 @@ CREATE TABLE ServiceRequests (
 	attendant_notes TEXT,
 	emergency_level INT,
 	tiid INT REFERENCES TransportInfo,
-	riid INT REFERENCES RentalInfo
+	riid INT REFERENCES RentalInfo,
+	completed INT
 );
 
 CREATE TABLE Equipment (
-	eid INT NOT NULL PRIMARY KEY,
+	eid INTEGER PRIMARY KEY,
 	equipment_type REFERENCES EquipmentTypes,
 	in_use INT,
 	riid INT REFERENCES RentalInfo
 );
 
 CREATE TABLE EquipmentTypes (
-	etid INT NOT NULL PRIMARY KEY,
+	etid INTEGER PRIMARY KEY,
 	name TEXT,
 	description TEXT
 );
 
 CREATE TABLE TransportInfo (
-	tiid INT NOT NULL PRIMARY KEY,
+	tiid INTEGER PRIMARY KEY,
 	from_address TEXT NOT NULL,
 	to_address TEXT,
 	pickup_time DATETIME
 );
 
 CREATE TABLE RentalInfo (
-	riid INT NOT NULL PRIMARY KEY,
+	riid INTEGER PRIMARY KEY,
 	eid INT NOT NULL REFERENCES Equipment,
 	rental_start DATETIME NOT NULL,
 	rental_end DATETIME
