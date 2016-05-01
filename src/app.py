@@ -38,10 +38,12 @@ def service_request():
              (cid, service_type, address, start_time, emergency_level, 
              gender_pref) VALUES ({}, {}, '{}', '{}', {}, '{}');"""\
              .format(uid, tid, loc, start_time, urg, gen)
-    db.cursor().execute(cmd)
-    result = db.cursor().execute('select * from ServiceRequests')
+    c = db.cursor()
+    c.execute(cmd)
+    c.execute('select * from ServiceRequests')
+    result = c.fetchall()
     db.close()
-    return result
+    return str(result)
   elif request.method == 'GET':
     form = ServiceRequestForm()
     return render_template('service_request.html', form=form)
