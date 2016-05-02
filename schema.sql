@@ -27,7 +27,7 @@ CREATE TABLE ServiceRequests (
 	client_notes TEXT,
 	dispatch_notes TEXT,
 	attendant_notes TEXT,
-	emergency_level INT,
+	emergency_level TEXT,
 	tiid INT REFERENCES TransportInfo,
 	riid INT REFERENCES RentalInfo,
 	completed INT
@@ -61,10 +61,10 @@ CREATE TABLE RentalInfo (
 );
 
 CREATE TABLE Services AS
-	SELECT 1 AS stid, 'Attendants' AS type UNION
-	SELECT 2        , 'Rental'             UNION
-	SELECT 3        , 'Repair'             UNION
-	SELECT 4        , 'Transport';
+	SELECT 1 AS stid, 'Personal Attendant Help' AS type UNION
+	SELECT 2        , 'Rental'                          UNION
+	SELECT 3        , 'Repair Service'                  UNION
+	SELECT 4        , 'Transports';
 
 CREATE TABLE Employees (
 	empid INTEGER PRIMARY KEY,
