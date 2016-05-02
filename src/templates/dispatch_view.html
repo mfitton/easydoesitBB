@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Creation Time</th>
+        <th>Urgency</th>
+        <th>Phone Number</th>
+        <th>Gender Preference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for req in service_requests %}
+      <tr>
+        <td>{{ req.name }}</td>
+        <td>{{ req.time }}</td>
+        <td>{{ req.urgency }}</td>
+        <td>{{ req.phone }}</td>
+        <td>{{ req.gender_pref }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
